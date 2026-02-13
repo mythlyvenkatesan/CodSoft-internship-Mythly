@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MYTHLY V.S | Portfolio</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+body{
+    background:#eef7f7;
+}
+
+/* NAVBAR */
+nav{
+    position:sticky;
+    top:0;
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 70px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    z-index:1000;
+}
+
+.nav-left{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile-pic{
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid seagreen;
+}
+
+.name{
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:1px;
+    color:#145f4c;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:15px;
+}
+
+nav a{
+    text-decoration:none;
+    color:black;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:seagreen;
+}
+
+.btn{
+    background:seagreen;
+    color:white;
+    border:none;
+    padding:8px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.btn:hover{
+    background:#0a7d5a;
+}
+
+/* HERO */
+.hero{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 100px;
+}
+
+.hero h1{
+    font-size:38px;
+}
+
+.green{
+    color:seagreen;
+}
+
+/* SECTION */
+.section{
+    padding:80px 100px;
+    background:white;
+    animation:fadeIn 1s ease;
+}
+
+.section h2{
+    color:seagreen;
+    margin-bottom:15px;
+}
+
+.section p{
+    line-height:1.7;
+    margin-bottom:10px;
+}
+
+/* SKILLS */
+.skills span{
+    display:inline-block;
+    background:seagreen;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    margin:6px;
+    font-size:14px;
+}
+
+/* CARDS */
+.card{
+    background:#f3f3f3;
+    padding:20px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:20px;
+    background:#111;
+    color:white;
+}
+
+/* ANIMATION */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+    .hero{
+        flex-direction:column;
+        text-align:center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+    <div class="nav-left">
+        <img src="profilepic.jpeg" width="100" height="100">
+        <span class="name">MYTHLY V.S</span>
+    </div>
+
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li>
+            <a href="Mythly_Resume (1).pdf" download target="_blank">
+                <button class="btn">Resume</button>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.linkedin.com/in/mythly-venkatesan-150ba532a/" target="_blank">
+                <button class="btn">LinkedIn</button>
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <div>
+        <h1>Hello 👋<br>I'm <span class="green">MYTHLY V.S</span></h1>
+        <p>B.Tech IT Student | Frontend Developer | Cybersecurity Enthusiast</p>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <h2>About Me</h2>
+    <p>
+        I am a B.Tech Information Technology student (2nd year) at
+        <strong>K.S. Rangasamy College of Technology</strong>.
+    </p>
+    <p>
+        I have knowledge in penetration testing, cybersecurity, cyber risk management,
+        and I am a <strong>Certified Phishing Prevention Specialist</strong>.
+    </p>
+    <p>
+        I also attended a <strong>National Level Technical Symposium</strong>
+        at Sri Ramakrishna Engineering College.
+    </p>
+
+    <h2>Skills</h2>
+    <div class="skills">
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Frontend Development</span>
+        <span>Python</span>
+        <span>DSA</span>
+        <span>Penetration Testing</span>
+        <span>Cybersecurity</span>
+        <span>Phishing Prevention</span>
+    </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="section">
+    <h2>Certifications</h2>
+
+    <div class="card">
+        <h3>Certified Phishing Prevention Specialist</h3>
+        <p>Trained in identifying and preventing phishing attacks.</p>
+    </div>
+
+    <div class="card">
+        <h3>Fundamentals of Cybersecurity</h3>
+        <p>Strong understanding of cyber threats and risk management.</p>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section">
+    <h2>Projects</h2>
+
+    <div class="card">
+        <h3>Daily Expense Tracker</h3>
+        <p>Tracks daily expenses using a clean UI.</p>
+    </div>
+
+    <div class="card">
+        <h3>Online Movie Ticket Booking</h3>
+        <p>Web-based system for booking movie tickets.</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 MYTHLY V.S </p>
+</footer>
+
+</body>
+</html>
