@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Pro Calculator</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.calculator{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  width:320px;
+}
+
+#display{
+  width:100%;
+  height:70px;
+  margin-bottom:15px;
+  text-align:right;
+  padding:10px;
+  font-size:28px;
+  border:none;
+  border-radius:10px;
+  background:#0f172a;
+  color:#fff;
+}
+
+.buttons{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+}
+
+button{
+  padding:15px;
+  font-size:18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  transition:0.2s;
+}
+
+button:hover{
+  transform:scale(1.05);
+}
+
+.num{
+  background:#e2e8f0;
+}
+
+.op{
+  background:#38bdf8;
+  color:white;
+}
+
+.equal{
+  background:#22c55e;
+  color:white;
+  grid-column:span 2;
+}
+
+.clear{
+  background:#ef4444;
+  color:white;
+}
+
+.del{
+  background:#f59e0b;
+  color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="calculator">
+  <input id="display" disabled>
+
+  <div class="buttons">
+    <button class="clear" onclick="clearAll()">AC</button>
+    <button class="del" onclick="del()">⌫</button>
+    <button class="op" onclick="insert('/')">÷</button>
+    <button class="op" onclick="insert('*')">×</button>
+
+    <button class="num" onclick="insert('7')">7</button>
+    <button class="num" onclick="insert('8')">8</button>
+    <button class="num" onclick="insert('9')">9</button>
+    <button class="op" onclick="insert('-')">−</button>
+
+    <button class="num" onclick="insert('4')">4</button>
+    <button class="num" onclick="insert('5')">5</button>
+    <button class="num" onclick="insert('6')">6</button>
+    <button class="op" onclick="insert('+')">+</button>
+
+    <button class="num" onclick="insert('1')">1</button>
+    <button class="num" onclick="insert('2')">2</button>
+    <button class="num" onclick="insert('3')">3</button>
+
+    <button class="equal" onclick="calculate()">=</button>
+
+    <button class="num" onclick="insert('0')">0</button>
+    <button class="num" onclick="insert('.')">.</button>
+  </div>
+</div>
+
+<script>
+let display = document.getElementById("display");
+
+function insert(val){
+  display.value += val;
+}
+
+function clearAll(){
+  display.value = "";
+}
+
+function del(){
+  display.value = display.value.slice(0,-1);
+}
+
+function calculate(){
+  try{
+    if(display.value===""){
+      return;
+    }
+
+    // Security filter
+    let valid = /^[0-9+\-*/.]+$/.test(display.value);
+    if(!valid){
+      display.value="Error";
+      return;
+    }
+
+    let result = eval(display.value);
+    display.value = result;
+  }
+  catch{
+    display.value="Error";
+  }
+}
+
+// Keyboard Support
+document.addEventListener("keydown",e=>{
+
+  if(e.key>=0 && e.key<=9) insert(e.key);
+
+  if(["+","-","*","/","."].includes(e.key))
+      insert(e.key);
+
+  if(e.key==="Enter") calculate();
+
+  if(e.key==="Backspace") del();
+
+  if(e.key==="Escape") clearAll();
+});
+</script>
+
+</body>
+</html>
